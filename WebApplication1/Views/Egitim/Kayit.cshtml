@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.Egitim
+
+@{
+    ViewData["Title"] = "Kayit";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Eğitim Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <b>Aday Seçiniz</b>
+    @Html.DropDownListFor(x => x.AdayID, (List<SelectListItem>)ViewBag.dgr3,"Seçiniz", new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Bölüm Adı</b>
+    @Html.TextBoxFor(x => x.BolumAdi, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Okul Adı</b>
+    @Html.TextBoxFor(x => x.OkulAdi, new { @class = "form-control", @required = "required" })
+    <br />
+    <label for="birthdaytime">Baslangiç Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="BaslangicTarihi" required>
+    <br />
+    <br />
+    <label for="birthdaytime">Bitiş Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="BitisTarihi" required>
+    <br />
+    <br />
+    <b>Eğitim Durumu</b>
+    <br />
+    @Html.DropDownList("Eğitim Durumu", new List<SelectListItem>
+{
+   new SelectListItem { Text = "İlkokul", Value = "İlkokul"},
+   new SelectListItem { Text = "Ortaokul", Value = "Ortaokul"},
+   new SelectListItem { Text = "Lise", Value = "Lise"},
+   new SelectListItem { Text = "Üniversite", Value = "Üniversite"},
+
+},"Seçiniz",new { @required = "required" })
+    <br />
+    <br />
+    <button class="btn btn-info" type="submit">Eğitim Ekle</button>
+</form>
+
+

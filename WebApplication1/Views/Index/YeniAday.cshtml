@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.Aday
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<h2>Aday Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <b>Aday Adı</b>
+    @Html.TextBoxFor(x => x.AdayAd, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Soyadı</b>
+    @Html.TextBoxFor(x => x.AdaySoyad, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Emaili</b>
+    @Html.TextBoxFor(x => x.AdayEmail, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Telefonu</b>
+    @Html.TextBoxFor(x => x.AdayTelefon, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Adresi</b>
+    @Html.TextBoxFor(x => x.AdayAdres, new { @class = "form-control", @required = "required" })
+    <br />
+    <label for="birthdaytime">Birthday:</label>
+    <br />
+    <input id="datetime" type="date" name="AdayDogumTarihi" required>
+    <br />
+    <br />
+    <button class="btn btn-info" type="submit">Aday Ekle</button>
+</form>

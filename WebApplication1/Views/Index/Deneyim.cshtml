@@ -1,0 +1,31 @@
+﻿@model List<DeneyimViewModel>
+@{
+    ViewData["Title"] = "Deneyim";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<h2>Deneyim Bilgileri</h2>
+<br />
+<table id="table1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Aday Adı Soyadı</th>         
+            <th>Firma Adı</th>
+            <th>Pozisyonu</th>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AdayAdSoyad</td>
+                <td>@item.Firma</td>
+                <td>@item.Pozisyonu</td>                
+                <td>@item.Baslangic.ToShortDateString()</td>
+                <td>@item.Bitis.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

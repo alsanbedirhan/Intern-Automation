@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.Ilan
+@{
+    ViewData["Title"] = "IlanGetir";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>İlan Güncelle</h2>
+<br />
+@using (Html.BeginForm("IlanGuncelle", "Ilan", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.IlanID)
+    <b>Ilan Aciklama</b>
+    @Html.TextBoxFor(x => x.IlanAciklama, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>İlan Başlangıç Tarihi</b>
+    <br />
+    @Html.EditorFor(x => x.IlanBaslangicTarihi, "{0:dd.MM.yyyy}", new { @id = "IlanBaslangicTarihi", @type = "date", @required = "required" })
+    <br />
+    <br />
+    <b>İlan Bitiş Tarihi</b>
+    <br />
+    @Html.EditorFor(x => x.IlanBitisTarihi, "{0:dd.MM.yyyy}", new { @id = "IlanBitisTarihi", @type = "date", @required = "required" })
+    <br />
+    <br />
+    <label>İlan Aktif Mi</label>
+    <br />
+    @Html.DropDownList("İlan Aktif Mi", new List<SelectListItem>
+    {
+          new SelectListItem { Text = "Evet", Value = "True"},
+          new SelectListItem { Text = "Hayır", Value = "False"}
+    },"Seçiniz", new { @required = "required" })
+    <br />
+    <br />
+    <button class="btn btn-info">İlan Güncelle</button>
+}
+

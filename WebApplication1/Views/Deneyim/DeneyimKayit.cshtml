@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.Deneyim
+@{
+    ViewData["Title"] = "DeneyimKayit";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Deneyim Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <b>Aday Seçiniz</b>
+    @Html.DropDownListFor(x => x.AdayID, (List<SelectListItem>)ViewBag.dgr,"Seçiniz", new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Firma Adı</b>
+    @Html.TextBoxFor(x => x.FirmaAdi, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Pozisyon</b>
+    @Html.TextBoxFor(x => x.Pozisyon, new { @class = "form-control", @required = "required" })
+    <br />
+    <label for="birthdaytime">Baslangiç Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="BaslangicTarihi" required>
+    <br />
+    <br />
+    <label for="birthdaytime">Bitiş Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="BitisTarihi" required>
+    <br />
+    <br />
+    <button class="btn btn-info" type="submit">Deneyim Ekle</button>
+</form>

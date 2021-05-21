@@ -1,0 +1,27 @@
+﻿@model List<AdaylarViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<h2>Başvurular</h2>
+<br />
+<table id="table1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Aday Adı Soyadı</th>
+            <th>Başvurduğu İlan</th>     
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AdayAdiSoyadi</td>
+                <td>@item.BasvuruBolumu</td>      
+                <td><a href="/Basvuru/BasvuruSil/@item.BasvurID" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

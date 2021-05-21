@@ -1,0 +1,25 @@
+﻿@model WebApplication1.Models.Ilan
+@{
+    ViewData["Title"] = "YeniIlan";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>İlan Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <b>Ilan Aciklama</b>
+    @Html.TextBoxFor(x => x.IlanAciklama, new { @class = "form-control", @required = "required" })
+    <br />
+    <label for="birthdaytime">Başlangıç Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="IlanBaslangicTarihi" required>
+    <br />
+    <br />
+    <label for="birthdaytime">Bitiş Tarihi:</label>
+    <br />
+    <input id="datetime" type="date" name="IlanBitisTarihi"required>
+    <input name="IlanAktifMi" value="True" type="hidden" />
+    <br />
+    <br />
+    <button class="btn btn-info" type="submit">İlan Ekle</button>
+</form>

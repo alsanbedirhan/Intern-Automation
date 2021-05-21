@@ -1,0 +1,45 @@
+﻿@using WebApplication1.Models
+@model List<Aday>
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Adaylar</h2>
+<br />
+        <table id="table1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Adres</th>
+                    <th>Doğum Tarihi</th>
+                    <th>Başvurduğu İlanları Göster</th>
+                    <th>Eğitim Bilgilerini Göster</th>
+                    <th>Deneyim Bilgilerini Göster</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.AdayAd</td>
+                        <td>@x.AdaySoyad</td>
+                        <td>@x.AdayEmail</td>
+                        <td>@x.AdayTelefon</td>
+                        <td>@x.AdayAdres</td>
+                        <td>@x.AdayDogumTarihi.ToShortDateString()</td>
+                        <td><a href="/Index/Ilan/@x.AdayId" class="btn btn-dark">İlanları Göster</a></td>
+                        <td><a href="/Index/Egitim/@x.AdayId" class="btn btn-dark">Eğitim Bilgileri</a></td>
+                        <td><a href="/Index/Deneyim/@x.AdayId" class="btn btn-dark">Deneyim Bilgileri</a></td>
+                        <td><a href="/Index/AdayGetir/@x.AdayId" class="btn btn-success">Güncelle</a></td>                        
+                        <td><a href="/Index/AdaySil/@x.AdayId" class="btn btn-danger">Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+

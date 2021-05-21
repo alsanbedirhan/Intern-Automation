@@ -1,0 +1,33 @@
+﻿@model List<EgitimViewModel>
+@{
+    ViewData["Title"] = "Egitim";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<h2>Eğitim Bilgileri</h2>
+<br />
+<table id="table1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Aday Adı Soyadı</th>
+            <th>Eğitim Durumu</th>
+            <th>Okul Adı</th>
+            <th>Bölüm Adı</th>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AdayAdSoyad</td>
+                <td>@item.Durum</td>
+                <td>@item.Okul</td>
+                <td>@item.Bolum</td>
+                <td>@item.Baslangic.ToShortDateString()</td>
+                <td>@item.Bitis.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

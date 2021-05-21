@@ -1,0 +1,23 @@
+﻿@model WebApplication1.Models.Basvuru
+@{
+    ViewData["Title"] = "Basvuru";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Başvuru Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <b>Aday Seçiniz</b>
+    @Html.DropDownListFor(x => x.AdayID, (List<SelectListItem>)ViewBag.dgr,"Seçiniz", new { @class = "form-control", @required = "required" })
+    <br />
+    <b>İlan Adı</b>
+    @Html.DropDownListFor(x => x.IlanID, (List<SelectListItem>)ViewBag.dgr2,"Seçiniz", new { @class = "form-control", @required = "required" })
+    <br />
+    <input name="Puan" value="0" type="hidden" />
+    <input name="Durumu" value="Belli Değil" type="hidden" />    
+    <b>Açıklama</b>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", @required = "required" })
+    <br />
+    <button class="btn btn-info" type="submit">Başvuru Ekle</button>
+</form>
+

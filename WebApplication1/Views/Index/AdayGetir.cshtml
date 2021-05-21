@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Aday
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<h2>Aday Güncelle</h2>
+<br />
+@using (Html.BeginForm("AdayGuncelle", "Index", FormMethod.Post))
+{
+    @Html.TextBoxFor(x => x.AdayId, new { @type = "hidden" })
+    <b>Aday Adı</b>
+    @Html.TextBoxFor(x => x.AdayAd, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Soyadı</b>
+    @Html.TextBoxFor(x => x.AdaySoyad, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Emaili</b>
+    @Html.TextBoxFor(x => x.AdayEmail, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Telefonu</b>
+    @Html.TextBoxFor(x => x.AdayTelefon, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Aday Adresi</b>
+    @Html.TextBoxFor(x => x.AdayAdres, new { @class = "form-control", @required = "required" })
+    <br />
+    <b>Doğum Tarihi</b>
+    <br />
+    @Html.EditorFor(x => x.AdayDogumTarihi, "{0:dd.MM.yyyy}", new { @id = "AdayDogumTarihi", @type = "date", @required = "required" })
+    <br />
+    <br />
+    <button class="btn btn-info">Aday Güncelle</button>
+}
+
+
