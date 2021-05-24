@@ -16,17 +16,7 @@ namespace WebApplication1.Controllers
         public IndexController(Context context)
         {
             _context = context;
-        }
-        public IActionResult Register()
-        {
-            return View();
-        }
-        public async Task<ActionResult> SignUp(Admin a)
-        {
-            await _context.AddAsync(a);
-            await _context.SaveChangesAsync();
-            return Redirect("/Index/Index");
-        }
+        }      
 
         public IActionResult Index()
         {
@@ -43,9 +33,9 @@ namespace WebApplication1.Controllers
         {
             _context.Adays.Add(a);
             _context.SaveChanges();
-            return RedirectToAction("Index");            
+            return RedirectToAction("Index");
         }
-        
+
         public IActionResult AdaySil(int id)
         {
             var dep = _context.Adays.Find(id);
@@ -61,13 +51,13 @@ namespace WebApplication1.Controllers
                      where aday.AdayId == id
                      select new AdaylarViewModel { AdayAdiSoyadi = aday.AdayAd + " " + aday.AdaySoyad, BasvuruBolumu = ilan.IlanAciklama };
             return View(qq.ToList());
-        } 
+        }
         public IActionResult Egitim(int id)
         {
-            var qq = from bsv in _context.Egitims                     
+            var qq = from bsv in _context.Egitims
                      join aday in _context.Adays on bsv.AdayID equals aday.AdayId
                      where aday.AdayId == id
-                     select new EgitimViewModel { AdayAdSoyad = aday.AdayAd + " " + aday.AdaySoyad, Durum = bsv.EgitimDurumu,Baslangic=bsv.BaslangicTarihi,Bitis=bsv.BitisTarihi,Bolum=bsv.BolumAdi,Okul=bsv.OkulAdi };
+                     select new EgitimViewModel { AdayAdSoyad = aday.AdayAd + " " + aday.AdaySoyad, Durum = bsv.EgitimDurumu, Baslangic = bsv.BaslangicTarihi, Bitis = bsv.BitisTarihi, Bolum = bsv.BolumAdi, Okul = bsv.OkulAdi };
             return View(qq.ToList());
         }
         public IActionResult Deneyim(int id)
@@ -75,7 +65,7 @@ namespace WebApplication1.Controllers
             var qq = from bsv in _context.Deneyims
                      join aday in _context.Adays on bsv.AdayID equals aday.AdayId
                      where aday.AdayId == id
-                     select new DeneyimViewModel { AdayAdSoyad = aday.AdayAd + " " + aday.AdaySoyad, Firma = bsv.FirmaAdi,Pozisyonu=bsv.Pozisyon,Baslangic=bsv.BaslangicTarihi,Bitis=bsv.BitisTarihi };
+                     select new DeneyimViewModel { AdayAdSoyad = aday.AdayAd + " " + aday.AdaySoyad, Firma = bsv.FirmaAdi, Pozisyonu = bsv.Pozisyon, Baslangic = bsv.BaslangicTarihi, Bitis = bsv.BitisTarihi };
             return View(qq.ToList());
         }
         public IActionResult AdayGetir(int id)
