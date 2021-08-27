@@ -29,14 +29,14 @@
     <br />
     <b>Eğitim Durumu</b>
     <br />
-    @Html.DropDownList("Eğitim Durumu", new List<SelectListItem>
+   @Html.DropDownListFor(x=>x.EgitimDurumu, new List<SelectListItem>
 {
    new SelectListItem { Text = "İlkokul", Value = "İlkokul"},
    new SelectListItem { Text = "Ortaokul", Value = "Ortaokul"},
    new SelectListItem { Text = "Lise", Value = "Lise"},
    new SelectListItem { Text = "Üniversite", Value = "Üniversite"},
 
-},"Seçiniz",new { @required = "required" })
+},"Seçiniz",new { @required = "required", @class = "form-control" })
     <br />
     <br />
     <button class="btn btn-info" type="submit">Eğitim Ekle</button>
